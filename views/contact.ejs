@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles/contact.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>
+        We'd love to hear from you! Please fill out the form below and we will
+        get in touch with you shortly.
+      </p>
+
+      <form action="/submit_contact_form" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div class="contact-info">
+        <h2>Our Contact Information</h2>
+        <p><strong>Address:</strong> Mumbai, Thane</p>
+        <p><strong>Phone:</strong> 8960583573</p>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:shaikhtaqu123@gmail.com">shaikhtaqu123@gmail.com</a>
+        </p>
+      </div>
+
+      <div class="business-hours">
+        <h2>Business Hours</h2>
+        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+        <p>Saturday: 10:00 AM - 4:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+
+      <div class="social-media">
+        <h2>Follow Us</h2>
+        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+        <a href="https://www.twitter.com" target="_blank">Twitter</a>
+        <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </body>
+</html>

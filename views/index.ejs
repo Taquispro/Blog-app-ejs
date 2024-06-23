@@ -1,0 +1,38 @@
+<div><%- include("partial/header.ejs") %></div>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Posts</title>
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to the Blog</h1>
+    </header>
+
+    <main>
+      <h2>All Posts</h2>
+      <% Posts.forEach(post => { %>
+      <article class="post">
+        <h3><%= post.title %></h3>
+        <p><%= post.content %></p>
+        <div class="post-actions">
+          <a href="/edit/<%= post.id %>" class="button edit">Edit</a>
+          <form
+            action="/delete/<%= post.id %>"
+            method="POST"
+            style="display: inline"
+          >
+            <button type="submit" class="button delete">Delete</button>
+          </form>
+        </div>
+      </article>
+      <% }) %>
+    </main>
+
+    <%- include("partial/footer.ejs") %>
+  </body>
+</html>

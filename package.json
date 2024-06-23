@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "path": "^0.12.7",
+    "uuid": "^10.0.0"
+  },
+  "type": "module",
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "blog application using ejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "taqu",
+  "license": "ISC"
+}
