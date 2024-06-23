@@ -7,11 +7,18 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 var posts = [];
 var currentYear = new Date().getFullYear();
+var visit = 0;
 app.get("/", (req, res) => {
-  res.render("index.ejs", { Posts: posts, Currentyear: currentYear });
+  visit = visit + 1;
+  console.log(visit);
+  res.render("index.ejs", {
+    Posts: posts,
+    Currentyear: currentYear,
+    Visit: visit,
+  });
 });
 app.get("/create", (req, res) => {
-  res.render("create.ejs", { Currentyear: currentYear });
+  res.render("create.ejs", { Currentyear: currentYear, Visit: visit });
 });
 app.post("/create", (req, res) => {
   const newPost = {
@@ -27,7 +34,11 @@ app.post("/create", (req, res) => {
 app.get("/edit/:id", (req, res) => {
   const post = posts.find((p) => p.id === req.params.id);
   console.log(post);
-  res.render("edit.ejs", { Post: post, Currentyear: currentYear });
+  res.render("edit.ejs", {
+    Post: post,
+    Currentyear: currentYear,
+    Visit: visit,
+  });
 });
 app.post("/edit/:id", (req, res) => {
   const postIndex = posts.findIndex((p) => p.id === req.params.id);
