@@ -12,7 +12,17 @@
 
     <main>
       <h2>Edit Post</h2>
-      <form action="/edit/<%= Post.id %>" method="POST" class="form-container">
+      <form action="/edit" method="POST" class="form-container">
+        <div class="form-group">
+          <label for="name">New name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value="<%= Post.name %>"
+            required
+          />
+        </div>
         <div class="form-group">
           <label for="title">Title:</label>
           <input

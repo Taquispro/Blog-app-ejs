@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Blog</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      form p {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+      form label {
+        font-weight: bold;
+      }
+      form input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      form button {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      form button:hover {
+        background-color: #218838;
+      }
+      .id-container {
+        margin-top: 20px;
+        text-align: center;
+      }
+      .id-container h1 {
+        margin: 5px 0;
+      }
+      .id-container button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .id-container button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("partial/header.ejs") %>
+    <form action="/idCheck" method="POST">
+      <div class="id-container">
+        <h1 id="myInput1">Your id is</h1>
+        <h1 id="myInput"><%=ID%></h1>
+      </div>
+      <h1>Congratulation Your Blog is created</h1>
+      <button type="submit" onclick="window.location.href = '/';">OK</button>
+    </form>
+    <div class="id-container">
+      <button onclick="myFunction()">Copy ID</button>
+    </div>
+
+    <script>
+      function myFunction() {
+        // Create a temporary hidden input field
+        var tempInput = document.createElement("input");
+        tempInput.style.position = "absolute";
+        tempInput.style.left = "-9999px";
+        tempInput.value = document.getElementById("myInput").innerText;
+
+        // Append the temporary input to the body
+        document.body.appendChild(tempInput);
+
+        // Select the text in the temporary input field
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the text inside the temporary input field
+        navigator.clipboard.writeText(tempInput.value);
+
+        // Alert the copied text
+        alert("Copied the ID: " + tempInput.value);
+
+        // Remove the temporary input field
+        document.body.removeChild(tempInput);
+      }
+    </script>
+  </body>
+</html>
